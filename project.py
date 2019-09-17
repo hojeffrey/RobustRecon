@@ -24,7 +24,7 @@ nm.scan(ip,
 ip = sys.argv[1]
 wordlist = sys.argv[2]
 
-
+'''
 def start_nmap(options, ip):
 	ip = sys.argv[1]
 	command = "nmap" + options + " " + ip
@@ -54,29 +54,29 @@ except socket.error: # socket.error is when the server couldnt connect
 		print ("Error: Couldn't reach target") 
 		sys.exit(1) 
 print ("[+] Checking/Parsing the wordlist") 
-
+'''
 try:
 	f = open(wordlist)
 	wl_check = f.read().strip().split('\n')
 	print (" Finished...")
 
-	print (" Amount of Directory path to check: %s ") %(str(len(wl_check))) # check this 
+	print (" Amount of Directory path to check: " + (str(len(wl_check)))) # check this 
 except IOError: # IOError is an error when input/output is wrong 
 	print ("Something went wrong...") 
 	sys.exit(1) 
 
 def pathcheck(path): 
 	try: 
-		filepath = requests.get("http://" + ip + "/" + path).status_code # makes request to the website using wordlist 
+		response = requests.get("http://" + ip + "/" + path).status_code # makes request to the website using wordlist 
 	except Exception:
 		print (" Error Occured") 
-		sys.exit(1) 
+		#sys.exit(1)
 	if response == 200: #If server responds 
-		print ("Valid path [200]: /%s") %(path) 
+		print ("Valid path [200]:" + path ) 
 print ("\n Starting Directory Brute Forcing... \n")
 
-for i in range(len(wl_check)): 
-	pathcheck(wl_check[i]) #check this
+for path in (wl_check): 
+	pathcheck(path) #check this
 print ("\n Scan Complete!") 
 '''
 except KeyboardInterrupt: 
