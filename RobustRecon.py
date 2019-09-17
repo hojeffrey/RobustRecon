@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import sys
-#import nmap
 import os
 import requests
 import socket
@@ -13,21 +12,13 @@ def run_command(cmd):
     output, error = process.communicate()
     return output
 
-def write_file(path, data):
-    f = open(path, 'w') #open file
+#def write_file(path, data):
+#    f = open(path, 'w') #open file
 #    print(type(data))
 #    print(data)
-    f.write(str(data))   #write data to the file
-    f.close()   #close file
+#    f.write(str(data))   #write data to the file
+#    f.close()   #close file
     
-
-
-def waf_detection():
-    return
-
-def brute_force():
-    return
-
 def start_nikto(options, ip):
     #ip = sys.argv[1]
     print('starting nikto')
@@ -37,34 +28,28 @@ def start_nikto(options, ip):
 #    print(results)
     return(results)
 
-def start_crawler():
-    return
-
-
 #ROOT_DIR = 'IP_Targets' #this is where we name our root directory
 #create_dir(ROOT_DIR) #this creates root directory
 
-def create_report(input):
-    project_dir = ROOT_DIR + '/' + ip
-    create_dir(project_dir)
+#def create_report(input):
+#    project_dir = ROOT_DIR + '/' + ip
+#    create_dir(project_dir)
 
 def main():
     ip = sys.argv[1]
 #    if ip is not actually an ip, then lets assume its a url, then convert ip to url
     path = os.getcwd()
     project_dir = path + '/RobustRecon'
-#    if path[-12:] == '/RobustRecon':
-#        print('RobustRecon directory already exists')
     try:
         os.mkdir(project_dir)
         print('RobustRecon directory created.')
     except:
-#        if path[-12:] == '/RobustRecon'
         print('RobustRecon directory already exists')
     nikto = start_nikto('-h', ip)   #option will be -h and ip will be 1st argument on command line
-#    print(nikto)
-#    create_report(nikto)
     write_file(project_dir + '/nikto.txt', nikto)
+    nmap = start_nmap(' -p80 --script http-waf-detect', ip)
+    write_file(project_dir + '/nmap.txt', nmap)
+
 
 if __name__ == '__main__':
     main()
