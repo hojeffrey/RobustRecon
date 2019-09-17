@@ -13,11 +13,6 @@ def run_command(cmd):
     output, error = process.communicate()
     return output
 
-#def create_dir(directory):
-#    if not os.path.exists(directory):
-#        #if there is no directiory yet, make one
-#        os.makedirs(directory)
-
 def write_file(path, data):
     f = open(path, 'w') #open file
 #    print(type(data))
@@ -25,7 +20,6 @@ def write_file(path, data):
     f.write(str(data))   #write data to the file
     f.close()   #close file
     
-#return true/false try-accept statements
 
 
 def waf_detection():
@@ -57,15 +51,20 @@ def create_report(input):
 def main():
     ip = sys.argv[1]
 #    if ip is not actually an ip, then lets assume its a url, then convert ip to url
-    path = os.getcwd() 
-    if not os.path.exists(path, 0755):   #unsure of 0755 as mode
-        #if there is no directiory yet, make one
-        os.makedirs(directory)    
+    path = os.getcwd()
+    project_dir = path + '/RobustRecon'
+#    if path[-12:] == '/RobustRecon':
+#        print('RobustRecon directory already exists')
+    try:
+        os.mkdir(project_dir)
+        print('RobustRecon directory created.')
+    except:
+#        if path[-12:] == '/RobustRecon'
+        print('RobustRecon directory already exists')
     nikto = start_nikto('-h', ip)   #option will be -h and ip will be 1st argument on command line
 #    print(nikto)
 #    create_report(nikto)
-    project_dir = '/root/Documents/git-repos/Fullstackcyber'
-    write_file(path + '/nikto.txt', nikto)
+    write_file(project_dir + '/nikto.txt', nikto)
 
 if __name__ == '__main__':
     main()
