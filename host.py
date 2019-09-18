@@ -8,7 +8,7 @@ def start_host(url):
     command = 'host ' + url
     results = run_command(command)
     print('host complete~')
-    return results
+    return str(results)
 
 '''
 def main():
