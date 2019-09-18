@@ -3,14 +3,26 @@
 import requests
 import sys
 
-useragent = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36",}
-
 ip = sys.argv[1]
+#useragent = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb$
 
-wplogin= requests.get("http://" + ip + "/wp-login.php")
+# Making a request to the website to see if it is still online trouble shoot
+print("Checking status of the website ...")
+# WordPress paths
+wplogin= requests.get("http://" + ip + "/wp-login")
 
-if wplogin.status_code == 200:
-
-	print("WordPress login page found: PROBABLY WORDPRESS") 
+if wplogin.status_code == 200 or wplogin.status_code == 301:
+        print("Detected: Wordpress login (/wp-login)")
+        print("/n PROBABLY WORDPRESS /n")
 else:
-	print("Not Found") 
+        if wplogin.status_code == 404:
+        print("Did not detect: Wordpress login (/wp-login)")
+
+wpadmin= requests.get("http://" + ip + "/wp-admin")
+
+if wpadmin.status_code == 200 or wpadmin.status_code == 301:
+        print("Detected: Wordpress admin (/wp-admin)")
+        print("/n PROBABLY WORDPRESS /n")
+else:
+	if wplogin.status_code == 404:
+	print("Did not detect: Wordpress admin (/wp-admin") 
