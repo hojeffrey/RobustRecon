@@ -1,28 +1,40 @@
 #!/usr/bin/python3
 
-import requests
+import requests 
 import sys
 
-ip = sys.argv[1]
-#useragent = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWeb$
+def estimate_cms(ip):
+	path_pairs = [
+		['/wp-login/', 'WORDPRESS'], 
+		['/wp-admin/', 'WORDPRESS'], 
+		['/readme.html','WORDPRESS'],
+		['/wp-config', 'WORDPRESS'],
+		['/administrator/', 'Joomla'],
+		['/readme.txt', 'Joomla'],
+		['/media/com_joomlaupdate/', 'Joomla'],
+		['index.php/admin/', 'Magento'],
+		['/RELEASE_NOTES.txt', 'Magento'],
+		['/js/mage/cookies.js', 'Magento'],
+		['index.php', 'Magento'],
+		['/skin/frontend/default/default/css/styles.css', 'Magento'],
+		['/skin/frontend/default/default/css/styles.css', 'Magento'],
+		['/errors/design.xml', 'Magento'],
+		['/readme.txt', 'Drupal'],
+		['/core/COPYRIGHT.txt', 'Drupal'],
+		['/modules/README.txt', 'Drupal'],
+		['/config.inc.php', 'phpMyAdmin']
+	]
 
-# Making a request to the website to see if it is still online trouble shoot
-print("Checking status of the website ...")
-# WordPress paths
-wplogin= requests.get("http://" + ip + "/wp-login")
+	valid_status_codes = [200, 201, 202, 203, 204, 300, 301, 401, 403]
+	try:
+		for pair in path_pairs:
+			req = requests.get("http://" + ip + pair[0])
+			if (req.status_code) in valid_status_codes: 
+				print(str(pair[0]) + str(pair[1]))
+			else: 
+				print('UNPREDICTABLE CMS')
+	except:
+		print ("problem connecting host")
+		sys.exit(1)
 
-if wplogin.status_code == 200 or wplogin.status_code == 301:
-        print("Detected: Wordpress login (/wp-login)")
-        print("/n PROBABLY WORDPRESS /n")
-else:
-        if wplogin.status_code == 404:
-        print("Did not detect: Wordpress login (/wp-login)")
 
-wpadmin= requests.get("http://" + ip + "/wp-admin")
-
-if wpadmin.status_code == 200 or wpadmin.status_code == 301:
-        print("Detected: Wordpress admin (/wp-admin)")
-        print("/n PROBABLY WORDPRESS /n")
-else:
-	if wplogin.status_code == 404:
-	print("Did not detect: Wordpress admin (/wp-admin") 
