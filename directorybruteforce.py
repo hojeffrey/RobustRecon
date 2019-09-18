@@ -1,13 +1,16 @@
 #!/bin/usr/python3 
 
 import sys
-import os
+import os 
 import requests
+import socket
 
 print("[+] Checking for WAF...")
 
+
 ip = sys.argv[1]
 wordlist = sys.argv[2]
+ 
 try:
 	f = open(wordlist)
 	wl_check = f.read().strip().split('\n')
@@ -30,4 +33,5 @@ print ("\n Starting Directory Brute Forcing... \n")
 
 for path in (wl_check): 
 	pathcheck(path) #check this
-print ("\n Scan Complete!")
+print ("\n Scan Complete!") 
+
