@@ -5,10 +5,11 @@ import os
 
 print("[+] Checking for WAF...")
 
-ip = sys.argv[1]
+# ip = sys.argv[1]
+
 
 def start_nmap(options, ip):
-        ip = sys.argv[1]
+        # ip = sys.argv[1]
         command = "nmap" + options + " " + ip
         process = os.popen(command)
         results = str(process.read())
