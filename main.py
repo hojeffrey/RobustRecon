@@ -13,7 +13,7 @@ def main():
     ip = start_host(url)    #uses start_host functioni
     print('IP Address found:' + ip)
     path = os.getcwd()  #defines path as current working directory
-    project_dir = path + '/RobustRecon'
+    project_dir = path + '/RobustRecon: ' + ip
     try:
         os.mkdir(project_dir)
         print('RobustRecon directory created.')
