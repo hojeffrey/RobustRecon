@@ -10,7 +10,7 @@ from write_file import write_file
 def main():
     url = sys.argv[1]   #first argument is going to be url
     ip = start_host(url)    #uses start_host functioni
-    print(ip)
+    print('IP Address found:' + ip)
     path = os.getcwd()  #defines path as current working directory
     project_dir = path + '/RobustRecon'
     try:
