@@ -2,10 +2,15 @@
 import sys
 import subprocess
 from run_command import run_command
+import re
+
+def is_ip(text):
+    aa=re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",text)
+    return(aa is not None)
 
 def start_host(url):
-#    print('Starting "host" to find IP Address...')
-#    command = 'host ' + url + ' | head -1 | cut -d\' \' -f4'
+    if is_ip(url):
+        return(url)
     command = 'host ' + url
     #host scanme.nmap.org | head -1 | cut -d' ' -f4 (in bash)
     print(command)
@@ -13,9 +18,6 @@ def start_host(url):
     start_location = results.index('has address') + 12  #represents where the string starts so its not static
     stop_location = results.index('\n')
     ip = results[start_location:stop_location]
-#    print(ip)
-    #print('host complete~')
-#    print(results)
     return(ip) 
 
 '''
