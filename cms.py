@@ -5,24 +5,24 @@ import sys
 
 def estimate_cms(ip):
 	path_pairs = [
-		['/wp-login/', 'WORDPRESS'], 
-		['/wp-admin/', 'WORDPRESS'], 
-		['/readme.html','WORDPRESS'],
-		['/wp-config', 'WORDPRESS'],
-		['/administrator/', 'Joomla'],
-		['/readme.txt', 'Joomla'],
-		['/media/com_joomlaupdate/', 'Joomla'],
-		['index.php/admin/', 'Magento'],
-		['/RELEASE_NOTES.txt', 'Magento'],
-		['/js/mage/cookies.js', 'Magento'],
-		['index.php', 'Magento'],
-		['/skin/frontend/default/default/css/styles.css', 'Magento'],
-		['/skin/frontend/default/default/css/styles.css', 'Magento'],
-		['/errors/design.xml', 'Magento'],
-		['/readme.txt', 'Drupal'],
-		['/core/COPYRIGHT.txt', 'Drupal'],
-		['/modules/README.txt', 'Drupal'],
-		['/config.inc.php', 'phpMyAdmin']
+		['/wp-login/', '   - PROBABLY WORDPRESS'], 
+		['/wp-admin/', '   - PROBABLY WORDPRESS'], 
+		['/readme.html','   - PROBABLY WORDPRESS'],
+		['/wp-config', '   - PROBABLY WORDPRESS'],
+		['/administrator/', '   - PROBABLY Joomla'],
+		['/readme.txt', '   - PROBABLY Joomla'],
+		['/media/com_joomlaupdate/', '   - PROBABLY Joomla'],
+		['/index.php/admin/', '   - PROBABLY Magento'],
+		['/RELEASE_NOTES.txt', '   - PROBABLY Magento'],
+		['/js/mage/cookies.js', '   - PROBABLY Magento'],
+		['/index.php', '   - PROBABLY Magento'],
+		['/skin/frontend/default/default/css/styles.css', '   - PROBABLYMagento'],
+		['/skin/frontend/default/default/css/styles.css', '   - PROBABLY Magento'],
+		['/errors/design.xml', '   - PROBABLYMagento'],
+		['/readme.txt', '   - PROBABLY Drupal'],
+		['/core/COPYRIGHT.txt', '   - PROBABLY Drupal'],
+		['/modules/README.txt', '   - PROBABLY Drupal'],
+		['/config.inc.php', '   - PROBABLY phpMyAdmin']
 	]
 
 	valid_status_codes = [200, 201, 202, 203, 204, 300, 301, 401, 403]
@@ -38,3 +38,4 @@ def estimate_cms(ip):
 		sys.exit(1)
 
 
+print (estimate_cms(ip))
