@@ -3,6 +3,7 @@
 import sys
 import os 
 import requests
+from colorama import Fore, Style
 
 def bruteforce (ip, wordlist):
 	try:
@@ -16,15 +17,19 @@ def bruteforce (ip, wordlist):
 		sys.exit(1) 
 
 	def pathcheck(path): 
+		valid_status_codes = [200, 201, 202, 203, 204, 300, 301, 302, 304, 401, 403]
 		try: 
 			response = requests.get("http://" + ip + "/" + path).status_code # makes request to the website using wordlist 
 		except Exception:
 			print (" Error Occured") 
 		#sys.exit(1)
-		if response == 200: #If server responds 
-			print ("Valid path [200]:" + path ) 
+		if response in valid_status_codes: #If server responds 
+			print (Fore.GREEN + "Valid path [" + (str(response)) + "] :" + path + Style.RESET_ALL )
+		#else:
+		#	print (Fore.RED + "Bad path [" + (str(response)) + "] :" + path + Style.RESET_ALL ) 
 
 	for path in (wl_check): 
 		pathcheck(path) #check this
 	print(wl_check)
 	print ("\n Scan Complete!") 
+
