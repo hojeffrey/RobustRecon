@@ -1,0 +1,6 @@
+wp-admin
+images
+cool
+robots.txt
+index
+

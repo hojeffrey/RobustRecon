@@ -2,7 +2,7 @@
 
 import os
 
-print("[+] Checking for WAF using wafw00f...")
+#print("[+] Checking for WAF using wafw00f...")
 
 def start_wafw00f(ip):
         command = "wafw00f" + " " + ip
