@@ -9,8 +9,8 @@
 
 ### Requirements: 
 ##### -kali linux
-#####⋅⋅⋅    -wafw00f
-#####⋅⋅⋅    -nikto 
+⋅⋅⋅    -wafw00f
+⋅⋅⋅    -nikto 
 
 ### To Run Robust Recon:
 ##### 1st Argument = url OR ip
