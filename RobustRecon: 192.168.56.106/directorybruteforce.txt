@@ -1,0 +1,3 @@
+Valid path [200] :wp-admin
+Valid path [403] :images
+Valid path [200] :robots.txt
