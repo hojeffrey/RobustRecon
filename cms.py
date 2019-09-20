@@ -27,17 +27,23 @@ def estimate_cms(ip):
 	]
 
 	valid_status_codes = [200, 201, 202, 203, 204, 300, 301, 302, 304, 401, 403]
+	output = []
+	badoutput = []
 	try:
 		for pair in path_pairs:
 			req = requests.get("http://" + ip + pair[0])
 			if (req.status_code) in valid_status_codes: 
-				print(Fore.GREEN +'Found '+(str(pair[0])) + str(pair[1]) + Style.RESET_ALL)
+				output.append('Found '+(str(pair[0])) + str(pair[1]))
 			else:
-				print('Could not find path ' + (str(pair[0])) +' : UNPREDICTABLE CMS')
+				badoutput.append('Could not find path ' + (str(pair[0])) +' : UNPREDICTABLE CMS')
 	except:
 		print ("problem connecting host")
 		sys.exit(1)
 
+	return("\n".join(output + badoutput))
 
+if __name__=="__main__":
+	cms = estimate_cms("192.168.159.130")
 
+	print(cms)
 

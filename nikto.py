@@ -15,8 +15,8 @@ def start_nikto(url):
     command = ['nikto', '-h', url]
     proc = subprocess.Popen(command, stdout=subprocess.PIPE, universal_newlines=True)   #executes command on os level
     results = ''
-    print('Starting nikto scan...')
-    print('Check nikto.txt. Scan may take a few minutes.')
+   # print('Starting nikto scan...')
+   # print('Check nikto.txt. Scan may take a few minutes.')
     while True:
         output = proc.stdout.readline() #read output of the process line by line
 #        print(output.strip())   #print output to screen
