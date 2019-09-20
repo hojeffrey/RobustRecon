@@ -1,11 +1,7 @@
 # Fullstackcyber
 
-#####            _               _                            
-#####  _ __ ___ | |__  _   _ ___| |_ _ __ ___  ___ ___  _ __ 
-##### | '__/ _ \| '_ \| | | / __| __| '__/ _ \/ __/ _ \| '_ \ 
-##### | | | (_) | |_) | |_| \__ \ |_| | |  __/ (_| (_) | | | |
-##### |_|  \___/|_.__/ \__,_|___/\__|_|  \___|\___\___/|_| |_|
-                                                         
+![alt text](https://github.com/hojeffrey/Fullstackcyber/blob/test-branch/robust-recon-logo.png)
+
 #### Creators: Jeffrey Ho and Sarah Gold (g0ldleaf)
 
 ##### Robust Recon is a tool created to condense reconnaissance from hours to minutes. It can convert a url to an ip, detect a Web Application Firewall, bruteforce to determine directory paths, make an estimate on which CMS it is running, perform a vulnerability scan, and more. Best of all, it organizes your data in a neat directory. 
