@@ -8,18 +8,18 @@
 
 
 ### Requirements: 
-##### -kali linux
-⋅⋅⋅    -wafw00f
-⋅⋅⋅    -nikto 
+-kali linux
+⋅⋅⋅ -wafw00f
+⋅⋅⋅ -nikto 
 
 ### To Run Robust Recon:
-##### 1st Argument = url OR ip
-##### 2nd Argument = wordlist of your choice
+1st Argument = url OR ip
+2nd Argument = wordlist of your choice
 
 
 ### To Install:
-##### ln -s ./path/to/main.py /usr/local/bin/robustrecon
+ln -s ./path/to/main.py /usr/local/bin/robustrecon
 
 ### To View Output:
-##### cd into the folder labelled 'Robust Recon: 255.255.255.255'
-##### The folder will be labbeled with the IP Address of your target.
+cd into the folder labelled 'Robust Recon: 255.255.255.255'
+The folder will be labbeled with the IP Address of your target.
