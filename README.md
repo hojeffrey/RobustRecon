@@ -1,25 +1,55 @@
 # Fullstackcyber
 
-![alt text](https://github.com/hojeffrey/Fullstackcyber/blob/test-branch/robust-recon-logo.png)
+![robust-recon-logo](https://github.com/hojeffrey/Fullstackcyber/blob/test-branch/robust-recon-logo.png)
 
-#### Creators: Jeffrey Ho and Sarah Gold (g0ldleaf)
-
-##### Robust Recon is a tool created to condense reconnaissance from hours to minutes. It can convert a url to an ip, detect a Web Application Firewall, bruteforce to determine directory paths, make an estimate on which CMS it is running, perform a vulnerability scan, and more. Best of all, it organizes your data in a neat directory. 
+ Robust Recon is a tool created to condense reconnaissance from hours to minutes. It can convert a url to an ip, detect a Web Application Firewall, bruteforce to determine directory paths, make an estimate on which CMS it is running, perform a vulnerability scan, and more. Best of all, it organizes your data in a neat directory. 
 
 
-### Requirements: 
-##### -kali linux
-#####    -wafw00f
-#####    -nikto 
+## Prerequisites: 
+- Kali Linux
+  - wafw00f
+  - nikto 
 
-### To Run Robust Recon:
-##### 1st Argument = url OR ip
-##### 2nd Argument = wordlist of your choice
+## Installing:
+`wget` raw files
+ ```
+ wget https://raw.githubusercontent.com/hojeffrey/Fullstackcyber/master/main.py
+ ```
+Replace `/path/to` with wherever you performed `wget` and replace `/usr/local/bin` with a location of your choice for Rubust Recon
+  ```
+  ln -s ./path/to/main.py /usr/local/bin/robustrecon
+  ```
 
+## To Run Robust Recon:
+Go to the location you saved Robust Recon. Enter an ip or a url ar the first argument. Enter a wordlist of your choice for the second argument.
+```
+robustrecon hackthissite.org wordlist
+```
 
-### To Install:
-##### ln -s ./path/to/main.py /usr/local/bin/robustrecon
+ 1st Argument = url OR ip
 
-### To View Output:
-##### cd into the folder labelled 'Robust Recon: 255.255.255.255'
-##### The folder will be labbeled with the IP Address of your target.
+2nd Argument = wordlist of your choice
+
+## To View Results:
+The folder will be labelled with the IP Address of your target.
+```
+cd 'Robust Recon: 255.255.255.255'
+```
+`cat` each file to see the full printed results.
+```
+cat nikto.txt
+```
+
+## Authors
+
+* **Jeffrey Ho** - *Initial work* - [hojeffrey](https://github.com/hojeffrey)
+* **Sarah Gold** - *Initial work* - [g0ldleaf](https://github.com/g0ldleaf)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to the Fullstack Academy Cyber team for their guidance
+* Thanks to the creators of nmap, nikto, and wafw00f
