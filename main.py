@@ -8,7 +8,7 @@ from run_command import run_command
 from nikto import start_nikto
 from write_file import write_file
 from waf_detect import start_wafw00f
-from colorama import Fore, Style    #for cms
+#from colorama import Fore, Style    #for cms
 from cms import estimate_cms
 from directorybruteforce import bruteforce
 
