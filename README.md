@@ -11,22 +11,23 @@
   - nikto 
 
 ## Installing:
-`wget` raw files
- ```
- wget https://raw.githubusercontent.com/hojeffrey/Fullstackcyber/master/main.py
- ```
-Replace `/path/to` with wherever you performed `wget` and replace `/usr/local/bin` with a location of your choice for Rubust Recon
-  ```
-  ln -s ./path/to/main.py /usr/local/bin/robustrecon
-  ```
+Download the zip file. Move file to a folder of your choice. Unzip.
+```
+unzip robustrecon.zip
+```
+  
+Replace `/path/to` with current location of the files and replace `/usr/local/bin` with a location of your choice
+```
+ln -s ./path/to/main.py /usr/local/bin/robustrecon
+```
 
 ## To Run Robust Recon:
-Go to the location you saved Robust Recon. Enter an ip or a url ar the first argument. Enter a wordlist of your choice for the second argument.
+Go to the location you saved Robust Recon. Enter an ip or a url as the first argument. Enter a wordlist of your choice for the second argument.
 ```
 robustrecon hackthissite.org wordlist
 ```
 
- 1st Argument = url OR ip
+1st Argument = url OR ip
 
 2nd Argument = wordlist of your choice
 
