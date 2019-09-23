@@ -10,16 +10,6 @@
   - wafw00f
   - nikto 
 
-## Installing:
-`wget` raw files
- ```
- wget https://raw.githubusercontent.com/hojeffrey/Fullstackcyber/master/main.py
- ```
-Replace `/path/to` with wherever you performed `wget` and replace `/usr/local/bin` with a location of your choice for Rubust Recon
-  ```
-  ln -s ./path/to/main.py /usr/local/bin/robustrecon
-  ```
-
 ## To Run Robust Recon:
 Go to the location you saved Robust Recon. Enter an ip or a url ar the first argument. Enter a wordlist of your choice for the second argument.
 ```
